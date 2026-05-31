@@ -204,24 +204,7 @@ function buildGallery(container, category) {
 
   // Unified lists of files to load
   const baseFiles = category === 'residential' ? residentialImages : (category === 'commercial' ? commercialImages : productsImages);
-  const filesToTry = [...baseFiles];
-
-  // 1. Automatically append numerical files up to 100 to catch future additions dynamically!
-  for (let i = 1; i <= 100; i++) {
-    const iStr = String(i);
-    const padStr = iStr.padStart(2, '0');
-    
-    const candidates = [
-      `${iStr}.jpg`, `${iStr}.jpeg`, `${iStr}.png`,
-      `${padStr}.jpg`, `${padStr}.jpeg`, `${padStr}.png`
-    ];
-
-    candidates.forEach(c => {
-      if (!filesToTry.includes(c)) {
-        filesToTry.push(c);
-      }
-    });
-  }
+  const filesToTry = baseFiles;
 
   // Set up Cache Buster query ONLY if we are serving on HTTP/HTTPS (local file:// protocols will not include queries as they break directory loading)
   const isLocal = window.location.protocol === 'file:';
