@@ -28,20 +28,9 @@ let currentLightboxIndex = 0;
  * Detects running environment and handles fallbacks automatically
  */
 function getAssetPrefix() {
-  // Check if we are inside a subfolder (e.g. /projects/residential.html or similar)
-  const path = window.location.pathname;
-  
-  // If the path includes /projects/ or we are in a nested directory structure
-  // This is highly flexible to match sub-routing on both local servers and relative file systems
-  const isSubfolder = path.includes('/projects/') || (path.split('/').length > 2 && !path.startsWith('file:///C:'));
-  
-  // Local file systems (file:///) require a robust depth check
-  if (window.location.protocol === 'file:') {
-    // If the path has 'projects' before the file name
-    return path.toLowerCase().includes('/projects/') ? '../' : '';
-  }
-  
-  return isSubfolder ? '../' : '';
+  // Only pages inside the projects folder are nested by one level
+  const path = window.location.pathname.toLowerCase();
+  return path.includes('/projects/') ? '../' : '';
 }
 
 /**
