@@ -202,6 +202,22 @@ function buildGallery(container, category) {
   const isLocal = window.location.protocol === 'file:';
   const versionQuery = isLocal ? '' : '?v=' + Date.now();
 
+  // Synchronously initialize the activeGalleryImages array to guarantee immediate, correct, and stable image counts on page load!
+  activeGalleryImages = filesToTry.map((filename) => {
+    const fileIndexInArray = baseFiles.indexOf(filename);
+    const titleText = (fileIndexInArray !== -1 && metadataList[fileIndexInArray]) ? metadataList[fileIndexInArray].title : "Bespoke Architectural Form";
+    const locText = (fileIndexInArray !== -1 && metadataList[fileIndexInArray]) ? metadataList[fileIndexInArray].loc : "Creative Studio";
+    const primaryPath = `${assetPrefix}${category}/${filename}${versionQuery}`;
+    
+    return {
+      src: primaryPath,
+      title: titleText,
+      loc: locText,
+      filename: filename,
+      element: null
+    };
+  });
+
   // 2. Loop and load each file in exact array order
   filesToTry.forEach((filename) => {
     // Create card element
@@ -221,34 +237,12 @@ function buildGallery(container, category) {
     }
     img.decoding = 'async';  // Asynchronous background decoding to prevent page freezes
     
-    // Register successfully loaded image to active lightbox array
-    img.onload = function() {
-      img.onload = null; // Clean up
-      
-      const fileIndexInArray = baseFiles.indexOf(filename);
-      const titleText = (fileIndexInArray !== -1 && metadataList[fileIndexInArray]) ? metadataList[fileIndexInArray].title : "Bespoke Architectural Form";
-      const locText = (fileIndexInArray !== -1 && metadataList[fileIndexInArray]) ? metadataList[fileIndexInArray].loc : "Creative Studio";
-      
-      const imgObj = {
-        src: img.src,
-        title: titleText,
-        loc: locText,
-        filename: filename,
-        element: img
-      };
-      
-      // Prevent duplicates and keep array strictly sorted in filesToTry order (guarantees perfect gallery sequence)
-      if (!activeGalleryImages.some(g => g.filename === filename)) {
-        activeGalleryImages.push(imgObj);
-        activeGalleryImages.sort((a, b) => filesToTry.indexOf(a.filename) - filesToTry.indexOf(b.filename));
+    // Set up click actions synchronously so counts and indices are instantly correct and stable
+    item.onclick = () => {
+      const currentIdx = activeGalleryImages.findIndex(g => g.filename === filename);
+      if (currentIdx !== -1) {
+        openLightbox(currentIdx);
       }
-      
-      // Remap click listeners for lightbox matching
-      activeGalleryImages.forEach((gImg, idx) => {
-        gImg.element.parentNode.onclick = () => {
-          openLightbox(idx);
-        };
-      });
     };
 
     // Establish multi-level loading path handlers (Direct root category folder vs Legacy assets fallbacks)
@@ -259,20 +253,22 @@ function buildGallery(container, category) {
     img.src = primaryPath;
     img.onerror = function() {
       img.src = fallbackPath;
+      
+      // Update active array path synchronously on fallback load
+      const activeImg = activeGalleryImages.find(g => g.filename === filename);
+      if (activeImg) activeImg.src = fallbackPath;
+      
       img.onerror = function() {
         img.src = rootProjectsFallback;
+        if (activeImg) activeImg.src = rootProjectsFallback;
+        
         img.onerror = function() {
           // If all paths fail, the image does not physically exist in directory.
           // Remove the empty card from the DOM
           item.remove();
           
-          // Remove from active lightbox array and re-index
+          // Remove from active lightbox array synchronously
           activeGalleryImages = activeGalleryImages.filter(gImg => gImg.filename !== filename);
-          activeGalleryImages.forEach((gImg, idx) => {
-            gImg.element.parentNode.onclick = () => {
-              openLightbox(idx);
-            };
-          });
         };
       };
     };
