@@ -245,21 +245,6 @@ body.home-page .sidebar {
   border-bottom: 1px solid var(--border-color);
 }
 
-body.home-page .nav-dropdown {
-  background-color: rgba(10, 10, 10, 0.96);
-  border-color: rgba(255, 255, 255, 0.15);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-}
-
-body.home-page .dropdown-link {
-  color: rgba(255, 255, 255, 0.7);
-}
-
-body.home-page .dropdown-link:hover,
-body.home-page .dropdown-link.active {
-  color: #ffffff;
-}
-
 body.home-page .main-content {
   padding-top: 90px; /* Offset to start slideshow exactly below the 90px desktop header */
 }
@@ -1357,7 +1342,7 @@ body.home-page .main-content {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(6, 6, 6, 0.98);
+  background-color: rgba(255, 255, 255, 0.98); /* Premium clean white background overlay */
   -webkit-backdrop-filter: blur(15px);
   backdrop-filter: blur(15px);
   z-index: 2000;
@@ -1388,7 +1373,7 @@ body.home-page .main-content {
   max-width: 100%;
   max-height: 80vh;
   object-fit: contain;
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.06); /* Subtle pure black boundary wireframe */
   opacity: 0;
   transform: scale(0.95);
   transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
