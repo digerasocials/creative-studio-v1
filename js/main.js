@@ -25,26 +25,50 @@ function initMobileNavigation() {
 
   if (!hamburger || !mobileOverlay) return;
 
+  // 1. Inject backdrop overlay dynamically if it doesn't exist
+  let backdrop = document.querySelector('.mobile-backdrop');
+  if (!backdrop) {
+    backdrop = document.createElement('div');
+    backdrop.className = 'mobile-backdrop';
+    body.appendChild(backdrop);
+  }
+
+  function openMenu() {
+    hamburger.classList.add('open');
+    mobileOverlay.classList.add('open');
+    backdrop.classList.add('open');
+    body.style.overflow = 'hidden';
+  }
+
+  function closeMenu() {
+    hamburger.classList.remove('open');
+    mobileOverlay.classList.remove('open');
+    backdrop.classList.remove('open');
+    body.style.overflow = '';
+  }
+
+  // Hamburger toggles menu state
   hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('open');
-    mobileOverlay.classList.toggle('open');
-    
-    // Prevent background scrolling when menu is open
     if (mobileOverlay.classList.contains('open')) {
-      body.style.overflow = 'hidden';
+      closeMenu();
     } else {
-      body.style.overflow = '';
+      openMenu();
     }
   });
 
+  // Close button inside overlay header
+  const closeBtn = document.querySelector('.mobile-menu-close');
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closeMenu);
+  }
+
+  // Backdrop overlay click closes menu
+  backdrop.addEventListener('click', closeMenu);
+
   // Close menu if links are clicked
-  const mobileLinks = document.querySelectorAll('.mobile-nav-link, .mobile-sub-link');
+  const mobileLinks = document.querySelectorAll('.mobile-nav-link');
   mobileLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      hamburger.classList.remove('open');
-      mobileOverlay.classList.remove('open');
-      body.style.overflow = '';
-    });
+    link.addEventListener('click', closeMenu);
   });
 }
 

@@ -67,8 +67,8 @@
     <!-- MOBILE HEADER & DRAWER -->
     <header class="mobile-header">
       <a href="index.html" class="mobile-logo">
-        
-        <span class="studio-title">Creative Studio</span>
+        <div class="studio-title">Creative Studio</div>
+        <div class="studio-subtitle">Interior Design & Bespoke Furniture</div>
       </a>
       <div class="hamburger" aria-label="Toggle Navigation Menu" aria-expanded="false">
         <span class="hamburger-line"></span>
@@ -78,18 +78,19 @@
     </header>
     
     <nav class="mobile-overlay">
+      <div class="mobile-menu-header">
+        <button class="mobile-menu-close" aria-label="Close Menu">
+          <svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+        <span class="mobile-menu-title">MENU</span>
+      </div>
       <ul class="mobile-nav-menu">
         <li><a href="index.html" class="mobile-nav-link">Home</a></li>
         <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
         <li><a href="services.html" class="mobile-nav-link">Services</a></li>
-        <li>
-          <a href="projects.html" class="mobile-nav-link">Projects</a>
-          <ul class="mobile-nav-sub">
-            <li><a href="projects/residential.html" class="mobile-sub-link">Residential</a></li>
-            <li><a href="projects/commercial.html" class="mobile-sub-link">Commercial</a></li>
-          </ul>
-        </li>
+        <li><a href="projects.html" class="mobile-nav-link">Projects</a></li>
         <li><a href="products.html" class="mobile-nav-link">Products</a></li>
+        <li><a href="media.html" class="mobile-nav-link">Media</a></li>
         <li><a href="careers.html" class="mobile-nav-link">Careers</a></li>
         <li><a href="contact.html" class="mobile-nav-link active">Contact</a></li>
       </ul>
