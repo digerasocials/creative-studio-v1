@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us — Creative Studio</title>
+  <meta name="description" content="Initiate spatial inquiry. Contact our partners regarding residential commissions and commercial architectural designs.">
+  
+  <!-- Leaflet Map CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+  
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  
+  <div class="app-container">
+    
+    <!-- FIXED LEFT DESKTOP SIDEBAR NAVIGATION -->
+    <nav class="sidebar">
+            <div class="sidebar-logo">
+        <a href="index.html">
+          <div class="studio-title">Creative Studio</div>
+          <div class="studio-subtitle">Interior Design & Bespoke Furniture</div>
+        </a>
+      </div>
+      
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <a href="index.html" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="about.html" class="nav-link">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a href="services.html" class="nav-link">Services</a>
+        </li>
+        <li class="nav-item" id="nav-projects-parent">
+          <a href="projects.html" class="nav-link">Projects</a>
+          <ul class="nav-dropdown">
+            <li><a href="projects/residential.html" class="dropdown-link">Residential</a></li>
+            <li><a href="projects/commercial.html" class="dropdown-link">Commercial</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a href="products.html" class="nav-link">Products</a>
+        </li>
+        <li class="nav-item">
+          <a href="careers.html" class="nav-link">Careers</a>
+        </li>
+        <li class="nav-item active">
+          <a href="contact.html" class="nav-link">Contact</a>
+        </li>
+      </ul>
+      
+      <div class="sidebar-footer">
+        <ul class="social-links">
+          <li><a href="#" class="social-link" aria-label="Instagram">IG</a></li>
+          <li><a href="#" class="social-link" aria-label="LinkedIn">LN</a></li>
+          <li><a href="#" class="social-link" aria-label="Pinterest">PT</a></li>
+        </ul>
+        <div class="copyright">
+          © 2026 Creative Studio.<br>All rights reserved.
+        </div>
+      </div>
+    </nav>
+    
+    <!-- MOBILE HEADER & DRAWER -->
+    <header class="mobile-header">
+      <a href="index.html" class="mobile-logo">
+        
+        <span class="studio-title">Creative Studio</span>
+      </a>
+      <div class="hamburger" aria-label="Toggle Navigation Menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </div>
+    </header>
+    
+    <nav class="mobile-overlay">
+      <ul class="mobile-nav-menu">
+        <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+        <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
+        <li><a href="services.html" class="mobile-nav-link">Services</a></li>
+        <li>
+          <a href="projects.html" class="mobile-nav-link">Projects</a>
+          <ul class="mobile-nav-sub">
+            <li><a href="projects/residential.html" class="mobile-sub-link">Residential</a></li>
+            <li><a href="projects/commercial.html" class="mobile-sub-link">Commercial</a></li>
+          </ul>
+        </li>
+        <li><a href="products.html" class="mobile-nav-link">Products</a></li>
+        <li><a href="careers.html" class="mobile-nav-link">Careers</a></li>
+        <li><a href="contact.html" class="mobile-nav-link active">Contact</a></li>
+      </ul>
+    </nav>
+    
+    <!-- MAIN CONTENT AREA -->
+    <main class="main-content">
+      
+      <section class="section">
+        <div class="section-header fade-in">
+          <h1 class="section-title">Initiate Inquiry</h1>
+        </div>
+        
+        <!-- CONTACT SECTION GRID -->
+        <div class="contact-layout">
+          
+          <!-- CONTACT INFOMATIONS -->
+          <div class="contact-info-list fade-in">
+            <!-- Studio Name & Address -->
+            <div class="contact-info-item">
+              <span class="contact-info-label">Studio & Head Office</span>
+              <span class="contact-info-value" style="font-size:1.15rem;font-weight:700;letter-spacing:0.02em;">
+                Creative Studio
+              </span>
+              <span class="contact-info-value" style="font-size:0.9rem;line-height:1.6;color:var(--text-muted);margin-top:6px;">
+                VCR4+457, Elayavoor Kannur Mattannur Road,<br>Kannur, Kerala 670594
+              </span>
+            </div>
+            
+            <!-- Contact Details -->
+            <div class="contact-info-item">
+              <span class="contact-info-label">Direct Line</span>
+              <span class="contact-info-value" style="font-size:1.1rem;font-weight:400;">
+                <a href="tel:+918893747747">088937 47747</a>
+              </span>
+            </div>
+            
+            <!-- Email Inquiry Space -->
+            <div class="contact-info-item">
+              <span class="contact-info-label">Inquiry Email</span>
+              <span class="contact-info-value" style="color:var(--text-muted);">
+                — <!-- Left space for email address as requested -->
+              </span>
+            </div>
+          </div>
+          
+          <!-- CONTACT FORM -->
+          <div class="form-container fade-in" style="transition-delay: 0.2s;">
+            <h2 class="contact-info-label" style="margin-bottom: 30px;">Digital Inquiry</h2>
+            
+            <form id="contact-form" action="https://formsubmit.co/ajax/jahshmuhammed@gmail.com" method="POST" class="minimal-form">
+            <input type="hidden" name="_subject" value="New Spatial Inquiry - Creative Studio">
+            <input type="hidden" name="_captcha" value="false">
+              <!-- Name input -->
+              <div class="form-group">
+                <input type="text" id="contact-name" name="Full Name" class="form-input" placeholder=" " required autocomplete="name">
+                <label for="contact-name" class="form-label">YOUR NAME</label>
+              </div>
+              
+              <!-- Email input -->
+              <div class="form-group">
+                <input type="email" id="contact-email" name="Email Address" class="form-input" placeholder=" " required autocomplete="email">
+                <label for="contact-email" class="form-label">EMAIL ADDRESS</label>
+              </div>
+              
+              <!-- Commission type input -->
+              <div class="form-group">
+                <input type="text" id="contact-type" class="form-input" placeholder=" " required>
+                <label for="contact-type" class="form-label">INQUIRY TYPE (E.G., RESIDENTIAL / MATERIAL)</label>
+              </div>
+              
+              <!-- Message input -->
+              <div class="form-group">
+                <textarea id="contact-message" name="Inquiry Details" class="form-textarea" placeholder=" " required></textarea>
+                <label for="contact-message" class="form-label">PROJECT BRIEF & DETAILS</label>
+              </div>
+              
+              <!-- Submit Button -->
+              <div>
+                <button type="submit" class="btn-minimal">SEND INQUIRY</button>
+              </div>
+              
+              <!-- Status Msg -->
+              <div class="form-status"></div>
+            </form>
+          </div>
+          
+        </div>
+        
+        <!-- MAP SECTION -->
+        <div class="map-container fade-in" style="transition-delay: 0.3s; position: relative;">
+          <div id="map"></div>
+          <a href="https://www.google.com/maps/search/creative+studio/@11.890299,75.4054303,10z?entry=s&sa=X&ved=1t%3A199789" target="_blank" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 999; cursor: pointer; display: block;" aria-label="Open in Google Maps"></a>
+        </div>
+        
+      </section>
+      
+    </main>
+    
+  </div>
+
+  <!-- Leaflet Map JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+  <!-- Global scripts -->
+  <script src="js/main.js"></script>
+  
+  <!-- Monochrome Leaflet Map Initialization script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Kerala Coordinates
+      const keralaCoords = [11.890299, 75.4054303];
+      
+      const map = L.map('map', {
+        center: keralaCoords,
+        zoom: 14,
+        zoomControl: false,
+        scrollWheelZoom: false
+      });
+
+      L.control.zoom({ position: 'bottomright' }).addTo(map);
+
+      // Load highly minimalist light monochrome tiles from CartoDB basemaps
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+        subdomains: 'abcd',
+        maxZoom: 20
+      }).addTo(map);
+
+      // Draw modern geometric marker instead of standard blue pin
+      L.circleMarker(keralaCoords, {
+        radius: 8,
+        fillColor: '#c5a880',
+        color: '#ffffff',
+        weight: 1.5,
+        opacity: 1,
+        fillOpacity: 0.8
+      }).addTo(map);
+    });
+  </script>
+</body>
+</html>

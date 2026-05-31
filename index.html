@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Creative Studio — Minimalist Architecture & Interior Design</title>
+  <meta name="description" content="A highly sophisticated, minimalist architecture and interior design studio specializing in bespoke residential and commercial forms.">
+  
+  <!-- SEO Heading Structure / Styling Links -->
+  <link rel="stylesheet" href="css/main.css?v=2.0">
+</head>
+<body class="home-page">
+  
+  <div class="app-container">
+    
+    <!-- FIXED LEFT DESKTOP SIDEBAR NAVIGATION -->
+    <nav class="sidebar">
+      <div class="sidebar-logo">
+        <a href="index.html">
+          <div class="studio-title">Creative Studio</div>
+          <div class="studio-subtitle">Interior Design & Bespoke Furniture</div>
+        </a>
+      </div>
+      
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <a href="index.html" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="about.html" class="nav-link">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a href="services.html" class="nav-link">Services</a>
+        </li>
+        <li class="nav-item" id="nav-projects-parent">
+          <a href="projects.html" class="nav-link">Projects</a>
+          <ul class="nav-dropdown">
+            <li><a href="projects/residential.html" class="dropdown-link">Residential</a></li>
+            <li><a href="projects/commercial.html" class="dropdown-link">Commercial</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a href="products.html" class="nav-link">Products</a>
+        </li>
+        <li class="nav-item">
+          <a href="media.html" class="nav-link">Media</a>
+        </li>
+        <li class="nav-item">
+          <a href="careers.html" class="nav-link">Careers</a>
+        </li>
+        <li class="nav-item">
+          <a href="contact.html" class="nav-link">Contact</a>
+        </li>
+      </ul>
+      
+      <div class="sidebar-footer">
+        <ul class="social-links">
+          <li><a href="#" class="social-link" aria-label="Instagram">IG</a></li>
+          <li><a href="#" class="social-link" aria-label="LinkedIn">LN</a></li>
+          <li><a href="#" class="social-link" aria-label="Pinterest">PT</a></li>
+        </ul>
+        <div class="copyright">
+          © 2026 Creative Studio.<br>All rights reserved.
+        </div>
+      </div>
+    </nav>
+    
+    <!-- MOBILE HEADER & DRAWER -->
+    <header class="mobile-header">
+      <a href="index.html" class="mobile-logo">
+        <span class="studio-title">Creative Studio</span>
+      </a>
+      <div class="hamburger" aria-label="Toggle Navigation Menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </div>
+    </header>
+    
+    <nav class="mobile-overlay">
+      <ul class="mobile-nav-menu">
+        <li><a href="index.html" class="mobile-nav-link active">Home</a></li>
+        <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
+        <li><a href="services.html" class="mobile-nav-link">Services</a></li>
+        <li>
+          <a href="projects.html" class="mobile-nav-link">Projects</a>
+          <ul class="mobile-nav-sub">
+            <li><a href="projects/residential.html" class="mobile-sub-link">Residential</a></li>
+            <li><a href="projects/commercial.html" class="mobile-sub-link">Commercial</a></li>
+          </ul>
+        </li>
+        <li><a href="products.html" class="mobile-nav-link">Products</a></li>
+        <li><a href="careers.html" class="mobile-nav-link">Careers</a></li>
+        <li><a href="contact.html" class="mobile-nav-link">Contact</a></li>
+      </ul>
+    </nav>
+    
+    <!-- MAIN CONTENT CONTAINER (FULLSCREEN LANDING GRID) -->
+    <main class="main-content">
+      
+      <!-- HERO SLIDER SECTION (7 Custom Slides Track) -->
+      <div class="hero-slider-container">
+        <div class="hero-slider-track">
+          <!-- Slide 1 -->
+          <div class="hero-slide">
+            <img src="assets/slideshow/1.jpg" alt="Bespoke Spatial Design 1">
+          </div>
+          <!-- Slide 2 -->
+          <div class="hero-slide">
+            <img src="assets/slideshow/2.jpeg" alt="Bespoke Spatial Design 2">
+          </div>
+          <!-- Slide 3 -->
+          <div class="hero-slide">
+            <img src="assets/slideshow/3.jpg" alt="Bespoke Spatial Design 3">
+          </div>
+          <!-- Slide 4 -->
+          <div class="hero-slide">
+            <img src="assets/slideshow/4.jpeg" alt="Bespoke Spatial Design 4">
+          </div>
+          <!-- Slide 5 -->
+          <div class="hero-slide">
+            <img src="assets/slideshow/5.jpg" alt="Bespoke Spatial Design 5">
+          </div>
+          <!-- Slide 6 -->
+          <div class="hero-slide">
+            <img src="assets/slideshow/6.jpg" alt="Bespoke Spatial Design 6">
+          </div>
+          <!-- Slide 7 -->
+          <div class="hero-slide">
+            <img src="assets/slideshow/7.jpeg" alt="Bespoke Spatial Design 7">
+          </div>
+        </div>
+        
+        <div class="hero-overlay" style="background: transparent;"></div>
+        
+        <!-- MANUAL SWITCHING CONTROLS -->
+        <button class="slide-arrow prev-arrow" aria-label="Previous Slide" style="left: 20px; z-index: 100;">
+          <svg viewBox="0 0 24 24" style="fill: currentColor;"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+        </button>
+        <button class="slide-arrow next-arrow" aria-label="Next Slide" style="right: 20px; z-index: 100;">
+          <svg viewBox="0 0 24 24" style="fill: currentColor;"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+        </button>
+      </div>
+      
+      <!-- DYNAMIC FOOTER BAR -->
+      <footer class="home-footer">
+      </footer>
+      
+    </main>
+    
+  </div>
+
+  <!-- Global scripts -->
+  <script src="js/main.js"></script>
+</body>
+</html>
