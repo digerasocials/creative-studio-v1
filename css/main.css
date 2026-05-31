@@ -670,11 +670,9 @@ body.home-page .main-content {
 
 /* SECTION GLOBAL CONTAINER */
 .section {
-  padding: 120px 80px;
-  min-height: 100vh;
+  padding: 60px 80px 120px 80px; /* Top padding cut in half (from 120px to 60px) to reduce blank space above content */
   display: flex;
   flex-direction: column;
-  justify-content: center;
   border-bottom: 1px solid var(--border-color);
   position: relative;
   background-color: var(--bg-dark);
@@ -1568,7 +1566,7 @@ body.home-page .main-content {
   }
   
   .section {
-    padding: 80px 40px;
+    padding: 40px 40px 80px 40px; /* Top padding cut in half (from 80px to 40px) to match visual spacing */
   }
   
   .editorial-grid {
@@ -1626,7 +1624,7 @@ body.home-page .main-content {
   }
 
   .section {
-    padding: 60px 24px;
+    padding: 30px 24px 60px 24px; /* Top padding cut in half (from 60px to 30px) to match visual spacing */
   }
   
   .section-title {
