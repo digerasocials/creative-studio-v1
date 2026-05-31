@@ -135,8 +135,8 @@ a {
 .sidebar-logo .studio-title {
   font-family: 'Playfair Display', serif;
   font-weight: 600; /* Sophisticated serif weight */
-  font-size: 1.25rem; /* Slightly larger for serif elegance */
-  letter-spacing: 0.08em; /* Premium spaced visual balance for serifs */
+  font-size: 1.45rem; /* Increased size for serif elegance */
+  letter-spacing: 0.14em; /* Increased spacing for premium visual balance */
   text-transform: uppercase;
   color: var(--text-light);
   line-height: 1.1;
@@ -297,8 +297,8 @@ body.home-page .main-content {
 .mobile-logo .studio-title {
   font-family: 'Playfair Display', serif;
   font-weight: 600;
-  font-size: 1.15rem;
-  letter-spacing: 0.08em;
+  font-size: 1.28rem; /* Increased size for mobile */
+  letter-spacing: 0.14em; /* Increased letter-spacing for premium feel */
   text-transform: uppercase;
 }
 
