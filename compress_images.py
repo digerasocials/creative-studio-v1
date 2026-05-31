@@ -19,6 +19,8 @@ base_dir = os.path.dirname(os.path.abspath(__file__))
 res_dir = os.path.join(base_dir, 'residential')
 comm_dir = os.path.join(base_dir, 'commercial')
 prod_dir = os.path.join(base_dir, 'products')
+slideshow_dir = os.path.join(base_dir, 'assets', 'slideshow')
+
 
 def compress_folder(directory):
     if not os.path.exists(directory):
@@ -78,6 +80,7 @@ def compress_folder(directory):
 compress_folder(res_dir)
 compress_folder(comm_dir)
 compress_folder(prod_dir)
+compress_folder(slideshow_dir)
 
 print("\n==============================================================")
 print("COMPRESSION COMPLETED! RUNNING PORTFOLIO INDEXER...")
