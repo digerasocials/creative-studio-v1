@@ -939,14 +939,14 @@ body.home-page .main-content {
   aspect-ratio: 4/5; /* Imposing vertical aspect ratio for large product visual focus */
 }
 
-/* Subtle clean watermark on products images (Centered at the bottom) */
+/* Subtle clean watermark on products images (Centered at the bottom edge) */
 .gallery-item-watermark {
   position: absolute;
-  bottom: 20px; /* Centered at the bottom */
+  bottom: 8px; /* Positioned right at the bottom edge */
   left: 50%;
   transform: translateX(-50%);
   font-family: var(--font-heading);
-  font-size: 0.82rem; /* Increased font-size for better readability */
+  font-size: 0.72rem; /* Softened size for edge alignment */
   letter-spacing: 0.35em; /* Premium wide letter-spacing */
   color: rgba(255, 255, 255, 0.45); /* Elegant translucent white */
   mix-blend-mode: difference; /* Inverts color over light/dark surfaces for perfect dynamic readability */
@@ -962,14 +962,14 @@ body.home-page .main-content {
   color: rgba(255, 255, 255, 0.75);
 }
 
-/* Lightbox overlay watermark (Centered at the bottom and resized) */
+/* Lightbox overlay watermark (Centered at the bottom edge and resized) */
 .lightbox-watermark {
   position: absolute;
-  bottom: 40px; /* Centered at the bottom */
+  bottom: 10px; /* Positioned right at the bottom edge of the image view */
   left: 50%;
   transform: translateX(-50%);
   font-family: var(--font-heading);
-  font-size: 1.15rem; /* Reduced size as requested for subtle visual balance */
+  font-size: 0.85rem; /* Reduced size as requested for subtle visual balance */
   letter-spacing: 0.42em; /* Spaced out visual balance */
   color: rgba(255, 255, 255, 0.35); /* Elegant translucent white */
   mix-blend-mode: difference; /* Inverts color relative to backing images */
