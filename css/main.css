@@ -746,6 +746,38 @@ body.home-page .main-content {
   gap: 40px;
 }
 
+.our-team-container {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.team-member-row {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+}
+
+.team-member-row.row-reverse {
+  flex-direction: row-reverse;
+}
+
+.team-member-img-col {
+  flex: 0 0 300px;
+  width: 300px;
+}
+
+.team-member-content-col {
+  flex: 1;
+}
+
+.team-member-content-col .team-bio {
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
 .team-card {
   border: 1px solid var(--border-color);
   background-color: var(--bg-dark-alt);
@@ -1673,6 +1705,23 @@ body.home-page .main-content {
 
   .team-grid {
     grid-template-columns: 1fr;
+  }
+
+  .our-team-container {
+    gap: 50px;
+  }
+
+  .team-member-row, 
+  .team-member-row.row-reverse {
+    flex-direction: column;
+    gap: 24px;
+    align-items: flex-start;
+  }
+
+  .team-member-img-col {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
   }
 
   .gallery-grid {

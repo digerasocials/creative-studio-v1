@@ -23,6 +23,28 @@ slideshow_dir = os.path.join(base_dir, 'assets', 'slideshow')
 project_cover_dir = os.path.join(base_dir, 'assets', 'project cover')
 
 
+import json
+
+tracker_path = os.path.join(base_dir, '.compressed_tracker.json')
+
+def load_tracker():
+    if os.path.exists(tracker_path):
+        try:
+            with open(tracker_path, 'r', encoding='utf-8') as f:
+                return json.load(f)
+        except Exception:
+            return {}
+    return {}
+
+def save_tracker(tracker):
+    try:
+        with open(tracker_path, 'w', encoding='utf-8') as f:
+            json.dump(tracker, f, indent=2)
+    except Exception as e:
+        print(f"Warning: Could not save tracker: {e}")
+
+tracker = load_tracker()
+
 def compress_folder(directory):
     if not os.path.exists(directory):
         print(f"Directory {directory} does not exist.")
@@ -35,10 +57,27 @@ def compress_folder(directory):
     print(f"COMPRESSING IMAGES IN FOLDER: {os.path.basename(directory).upper()}")
     print(f"==============================================================")
     
+    tracker_changed = False
+    
     for f in files:
         filepath = os.path.join(directory, f)
-        size_bytes = os.path.getsize(filepath)
+        rel_path = os.path.relpath(filepath, base_dir).replace('\\', '/')
+        
+        try:
+            size_bytes = os.path.getsize(filepath)
+            mtime = os.path.getmtime(filepath)
+        except Exception:
+            continue
+            
         size_mb = size_bytes / (1024 * 1024)
+        
+        # Check tracker to skip already compressed images
+        if rel_path in tracker:
+            saved = tracker[rel_path]
+            if saved.get('size') == size_bytes and saved.get('mtime') == mtime:
+                # File is already compressed and has not been modified
+                print(f" -> Skipping {f} (Already optimized and unchanged: {size_bytes/1024:.1f} KB)")
+                continue
         
         # Compress images larger than 300 KB
         if size_bytes > 300 * 1024:
@@ -70,12 +109,29 @@ def compress_folder(directory):
                     img.save(filepath, "JPEG", quality=80, optimize=True)
                 
                 new_size_bytes = os.path.getsize(filepath)
+                new_mtime = os.path.getmtime(filepath)
                 new_size_kb = new_size_bytes / 1024
+                
+                # Update tracker with post-compression state
+                tracker[rel_path] = {
+                    'size': new_size_bytes,
+                    'mtime': new_mtime
+                }
+                tracker_changed = True
                 print(f"Optimized to {new_size_kb:.1f} KB! (Saves {(size_bytes - new_size_bytes)/(1024*1024):.2f} MB)")
             except Exception as e:
                 print(f"FAILED: {e}")
         else:
+            # Under 300 KB, but let's record it in the tracker so we don't repeat printing
+            tracker[rel_path] = {
+                'size': size_bytes,
+                'mtime': mtime
+            }
+            tracker_changed = True
             print(f" -> Skipping {f} (Already optimized: {size_bytes/1024:.1f} KB)")
+            
+    if tracker_changed:
+        save_tracker(tracker)
 
 # Run compression on all root directories
 compress_folder(res_dir)
