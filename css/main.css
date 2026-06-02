@@ -948,8 +948,8 @@ body.home-page .main-content {
   font-family: var(--font-heading);
   font-size: 0.72rem; /* Softened size for edge alignment */
   letter-spacing: 0.35em; /* Premium wide letter-spacing */
-  color: rgba(255, 255, 255, 0.45); /* Elegant translucent white */
-  mix-blend-mode: difference; /* Inverts color over light/dark surfaces for perfect dynamic readability */
+  color: rgba(255, 255, 255, 0.6); /* Elegant translucent white */
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4); /* Clean drop shadow for legibility on light images */
   pointer-events: none;
   z-index: 4;
   text-transform: uppercase;
@@ -959,7 +959,7 @@ body.home-page .main-content {
 }
 
 .gallery-item:hover .gallery-item-watermark {
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.9);
 }
 
 /* Lightbox overlay watermark (Centered at the bottom edge and resized) */
@@ -971,8 +971,8 @@ body.home-page .main-content {
   font-family: var(--font-heading);
   font-size: 0.85rem; /* Reduced size as requested for subtle visual balance */
   letter-spacing: 0.42em; /* Spaced out visual balance */
-  color: rgba(255, 255, 255, 0.35); /* Elegant translucent white */
-  mix-blend-mode: difference; /* Inverts color relative to backing images */
+  color: rgba(255, 255, 255, 0.75); /* Elegant translucent white */
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5); /* Clean drop shadow for legibility on light images */
   pointer-events: none;
   z-index: 2050; /* Sits directly above the image, below close button */
   text-transform: uppercase;
