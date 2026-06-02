@@ -153,7 +153,21 @@ function buildGallery(container, category) {
     "_C5A3265.JPG.jpeg",
     "_C5A3297.JPG.jpeg",
     "_C5A3298.JPG.jpeg",
-    "_C5A3313.jpg.jpeg"
+    "_C5A3313.jpg.jpeg",
+    "IMG_9477.jpg.jpeg",
+    "IMG_9505.jpg (1).jpeg",
+    "Screenshot_20260602_142954_Instagram.jpg.jpeg",
+    "Screenshot_20260602_143103_Instagram.jpg.jpeg",
+    "Screenshot_20260602_143235_Instagram.jpg.jpeg",
+    "Screenshot_20260602_143249_Instagram.jpg.jpeg",
+    "Screenshot_20260602_143304_Instagram.jpg.jpeg",
+    "Screenshot_20260602_143313_Instagram.jpg.jpeg",
+    "Screenshot_20260602_143329_Instagram.jpg.jpeg",
+    "Screenshot_20260602_143339_Instagram.jpg.jpeg",
+    "WhatsApp Image 2026-06-02 at 2.31.27 PM.jpeg",
+    "WhatsApp Image 2026-06-02 at 2.31.28 PM (1).jpeg",
+    "WhatsApp Image 2026-06-02 at 2.31.28 PM.jpeg",
+    "WhatsApp Image 2026-06-02 at 2.31.29 PM.jpeg"
   ];
 
   // High-end metadata captions to make the gallery feel premium
@@ -273,6 +287,14 @@ function buildGallery(container, category) {
       };
     };
 
+    // Add custom watermark text for Products gallery items as requested
+    if (category === 'products') {
+      const watermark = document.createElement('div');
+      watermark.className = 'gallery-item-watermark';
+      watermark.textContent = 'CREATIVE STUDIO';
+      item.appendChild(watermark);
+    }
+
     item.appendChild(img);
     container.appendChild(item);
   });
@@ -305,6 +327,7 @@ function getOrCreateLightbox() {
       </button>
       <div class="lightbox-content">
         <img class="lightbox-img" src="" alt="Architectural Portfolio Space">
+        <div class="lightbox-watermark">CREATIVE STUDIO</div>
         <div class="lightbox-caption">
           <div class="lightbox-counter">01 / 12</div>
           <div class="lightbox-title">Minimalist Pavilion</div>
@@ -344,10 +367,20 @@ function updateLightboxContent(lightbox) {
   const imgElement = lightbox.querySelector('.lightbox-img');
   const counterElement = lightbox.querySelector('.lightbox-counter');
   const titleElement = lightbox.querySelector('.lightbox-title');
+  const watermarkElement = lightbox.querySelector('.lightbox-watermark');
   
   if (!imgElement || activeGalleryImages.length === 0) return;
   
   const project = activeGalleryImages[currentLightboxIndex];
+  
+  // Show watermark in lightbox ONLY if the active image is from the products section
+  if (watermarkElement) {
+    if (project.filename.toLowerCase().includes('_c5a') || (project.src && project.src.toLowerCase().includes('products/'))) {
+      watermarkElement.style.display = 'block';
+    } else {
+      watermarkElement.style.display = 'none';
+    }
+  }
   
   // Pre-load logic for smooth crossfade
   imgElement.style.opacity = '0';
