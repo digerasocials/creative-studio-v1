@@ -953,7 +953,7 @@ body.home-page .main-content {
   pointer-events: none;
   z-index: 4;
   text-transform: uppercase;
-  font-weight: 300;
+  font-weight: 600;
   white-space: nowrap;
   transition: opacity 0.5s ease, color 0.5s ease;
 }
@@ -976,7 +976,7 @@ body.home-page .main-content {
   pointer-events: none;
   z-index: 2050; /* Sits directly above the image, below close button */
   text-transform: uppercase;
-  font-weight: 300;
+  font-weight: 600;
   white-space: nowrap;
   display: none; /* Controlled dynamically by JS (only shown on products) */
 }
